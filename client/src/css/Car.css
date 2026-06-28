@@ -1,0 +1,27 @@
+header {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+article {
+  width: 80vw;
+  height: 220px;
+  margin: 0 auto;   
+  border-radius: 4px;
+  background-color: #000;
+  transition: 0.5s ease;
+
+  text-align: left;
+}
+
+.car-card {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.car-summary {
+  justify-self: start;
+}

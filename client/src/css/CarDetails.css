@@ -1,0 +1,57 @@
+
+
+.car-full-details {
+    background-color: var(--card-background-color);
+    width: 90vw;
+    height: auto;
+    transition: none;
+    margin: 30px auto;
+}
+
+.details-content {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    column-gap: 40px;
+    row-gap: 40px;
+}
+
+.car-selection {
+    width: 400px;
+    height: 200px;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    background-position: center center;
+}
+
+.car-modify {
+    display: flex;
+    align-items: center;
+}
+
+.car-price {
+    font-size: 1.8em;
+    font-weight: 700;
+    padding-left: 20px;
+    color: white;
+}
+
+.modify-option {
+    display: flex;
+    width: 400px;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-modify-options {
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
