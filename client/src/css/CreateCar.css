@@ -1,0 +1,30 @@
+.create-car-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100vw;
+    min-height: 100vh;
+    padding: 20px 50px 30px;
+    display: flex;
+    flex-direction: row;  /* stack children vertically */
+    gap: 16px;
+}
+
+.create-car-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0; /* important */
+}
+
+.create-car-price {
+    width: 300px;
+    height: 80px;
+    background-color: var(--primary);
+    border: 3px solid black;
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2em;
+}

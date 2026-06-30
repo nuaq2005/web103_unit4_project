@@ -32,14 +32,30 @@ const CarDetails = ({data}) => {
                 </header>
                 <div className= "details-content">
                     <div className= "car-price">💰 ${car.price}</div>
-                    <div className= "car-selection">Exterior: {car.exterior}</div>
-                    <div className= "car-selection">Interior: {car.interior}</div>
+                    <div className= "car-selection">
+                        <div className= "car-selection-overlay">
+                            Exterior: {car.exterior}
+                        </div>
+                    </div>
+                    <div className= "car-selection">
+                        <div className= "car-selection-overlay">
+                            Interior: {car.interior}
+                        </div>
+                    </div>
                     <div className= "car-modify">
                         <a href={`/edit/${id}`} role="button">Edit</a>
-                        <a href={`/delete/${id}`} role="button">Delete</a>
+                        <a href={`/`} role="button">Delete</a>
                     </div>
-                    <div className= "car-selection">Roof: {car.roof}</div>
-                    <div className= "car-selection">Wheels: {car.wheels}</div>
+                    <div className= "car-selection">
+                        <div className= "car-selection-overlay">
+                            Roof: {car.roof}
+                        </div>
+                    </div>
+                    <div className= "car-selection">
+                        <div className= "car-selection-overlay">
+                            Wheels: {car.wheels}
+                        </div>
+                    </div>
                 </div>
             </article>
 

@@ -19,6 +19,10 @@ const createCar = async (carData) => {
         body: JSON.stringify(carData)
     })
     return response.json()
+    window.location.href = '/'
+    if (!response.ok) {
+        throw new Error('Failed to create car')
+    }
 }
 
 const updateCar = async (id, carData) => {
@@ -30,6 +34,11 @@ const updateCar = async (id, carData) => {
         body: JSON.stringify(carData)
     })
     return response.json()
+    if (!response.ok) {
+        throw new Error('Failed to update car')
+    } else {
+        window.location.href = '/customcars'
+    }
 }
 
 const deleteCar = async (id) => {

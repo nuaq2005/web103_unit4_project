@@ -11,6 +11,42 @@ const getCars = async (req, res) => {
     }
 }
 
+const getExteriorModifications = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM exteriors')
+        res.status(200).json(result.rows)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
+const getInteriorModifications = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM interiors')
+        res.status(200).json(result.rows)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
+const getRoofModifications = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM roofs')
+        res.status(200).json(result.rows)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
+const getWheelsModifications = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM wheels')
+        res.status(200).json(result.rows)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}           
+
 const getCarById = async (req, res) => {
     try {
         const selectQuery = `
@@ -67,6 +103,10 @@ const deleteCar = async (req, res) => {
 
 export default{
     getCars,
+    getExteriorModifications,
+    getInteriorModifications,
+    getRoofModifications,
+    getWheelsModifications,
     getCarById,
     createCar,
     modifyCar,

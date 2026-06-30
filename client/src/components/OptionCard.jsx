@@ -1,4 +1,5 @@
 import React from 'react'
+import '../css/Options.css'
 
 const OptionCard = ({ option, selected, onSelect }) => {
   return (
@@ -11,16 +12,10 @@ const OptionCard = ({ option, selected, onSelect }) => {
       }}
     >
       <div className="option-card-overlay">
-        <div className="option-card-details">
-          <p>
-            {option.name}
-            <br />
-            💵 ${option.price}
-          </p>
-        </div>
+        <p>{option.name}</p>
+        <p>💵 ${option.price}</p>
       </div>
     </div>
   )
 }
-
 export default OptionCard 

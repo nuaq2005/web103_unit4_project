@@ -1,12 +1,8 @@
 import React from 'react'
 import OptionCard from './OptionCard.jsx'
+import '../css/Options.css'
 
-const OptionModal = ({
-  options,
-  selectedOption,
-  onSelect,
-  onClose
-}) => {
+const OptionModal = ({ options, selectedOption, onSelect, onClose }) => {
   return (
     <div className="option-modal">
       <div className="available-options">
@@ -14,7 +10,7 @@ const OptionModal = ({
           <OptionCard
             key={option.id}
             option={option}
-            selected={selectedOption?.id === option.id}
+            selected={selectedOption === option.name}
             onSelect={onSelect}
           />
         ))}

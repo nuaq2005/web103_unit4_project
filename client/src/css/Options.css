@@ -1,0 +1,66 @@
+.create-modify-options {
+    display: flex;
+    align-items: center;
+    gap: 12px;        /* consistent spacing between buttons */
+    flex-wrap: wrap;  /* prevent overflow on smaller screens */
+    width: 100%;      /* was 70%, causing elements to spill out */
+}
+
+.modify-option {
+    position: relative;  /* keeps modal anchored near its button */
+}
+
+.option-modal {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    border: 4px solid rgb(115, 2, 12);
+    border-radius: 4px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: auto;
+    z-index: 1000;
+}
+
+.option-card {
+  width: 140px;
+  height: 90px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.option-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 0.75rem;
+  padding: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.option-card:hover .option-card-overlay {
+  opacity: 1;
+}
+
+.available-options {
+    display: grid;
+    grid-template-columns: repeat(4, 140px);  /* 4 per row */
+    grid-auto-rows: 90px;
+    gap: 8px;
+    justify-content: center;
+}
