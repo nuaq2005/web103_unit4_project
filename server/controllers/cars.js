@@ -50,7 +50,7 @@ const getWheelsModifications = async (req, res) => {
 const getCarById = async (req, res) => {
     try {
         const selectQuery = `
-        SELECT name, exterior, interior, roof, wheels, price
+        SELECT name, convertible, exterior, interior, roof, wheels, price
         FROM cars
         WHERE id=$1
         `
@@ -63,15 +63,15 @@ const getCarById = async (req, res) => {
 }
 
 const createCar = async (req, res) => {
-    const {name, exterior, interior, roof, wheels, price} = req.body
+    const {name, convertible, exterior, interior, roof, wheels, price} = req.body
     try{
         const results = await pool.query(`
-            INSERT INTO cars (name, exterior, interior, roof, wheels, price)
-            VALUES ($1, $2, $3, $4, $5, $6)
+            INSERT INTO cars (name, convertible, exterior, interior, roof, wheels, price)
+            VALUES ($1, $2, $3, $4, $5, $6, $7)
             RETURNING *`,
-        [name,exterior, interior, roof, wheels, price])
+        [name, convertible, exterior, interior, roof, wheels, price])
         res.status(201).json(results.rows[0])
-    } catch (err){
+    } catch (error){
         res.status(409).json({error: error.message});
     }
 }
@@ -80,13 +80,13 @@ const createCar = async (req, res) => {
 const modifyCar = async (req, res) => {
     try{
         const id = parseInt(req.params.id)
-        const {name, exterior, interior, roof, wheels, price} = req.body
+        const {name, convertible, exterior, interior, roof, wheels, price} = req.body
         const results = await pool.query(`
-            UPDATE cars SET name = $1, exterior = $2, interior = $3, roof = $4, wheels = $5, price = $6  WHERE id = $7`,
-            [name, exterior, interior, roof, wheels, price, id]
+            UPDATE cars SET name = $1, convertible = $2, exterior = $3, interior = $4, roof = $5, wheels = $6, price = $7  WHERE id = $8`,
+            [name, convertible, exterior, interior, roof, wheels, price, id]
         )
         res.status(200).json(results.rows[0])
-    } catch (err){
+    } catch (error){
         res.status(409).json( { error: error.message } )
     }
 }
@@ -96,7 +96,7 @@ const deleteCar = async (req, res) => {
         const id = parseInt(req.params.id)
         const results = await pool.query('DELETE FROM cars WHERE id = $1', [id])
         res.status(200).json(results.rows[0])
-    } catch (err){
+    } catch (error){
         res.status(409).json( { error: error.message } )
     }
 } 

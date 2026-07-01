@@ -37,6 +37,7 @@ const createCarsTable = async () => {
             CREATE TABLE cars(
                 id SERIAL PRIMARY KEY,
                 name VARCHAR(255) NOT NULL,
+                convertible VARCHAR(10) NOT NULL,
                 exterior TEXT NOT NULL,
                 interior VARCHAR(255) NOT NULL,
                 roof VARCHAR(100) NOT NULL,
@@ -107,10 +108,11 @@ const seedCars = async () => {
         `)
     await pool.query(`
         INSERT INTO cars
-        (name, exterior, interior, roof, wheels, price)
+        (name, convertible, exterior, interior, roof, wheels, price)
         VALUES
         (
         'Sport Edition',
+        'False',
         'Red',
         'Black Leather',
         'Panoramic Glass',
@@ -119,6 +121,7 @@ const seedCars = async () => {
         ),
         (
         'Luxury Cruiser',
+        'True',
         'Black',
         'Tan Leather',
         'Sunroof',
@@ -127,6 +130,7 @@ const seedCars = async () => {
         ),
         (
         'Eco Drive',
+        'False',
         'White',
         'Gray Fabric',
         'Standard',

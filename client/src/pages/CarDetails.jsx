@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom'
 import React, {useState, useEffect} from 'react';
 import CarsAPI from '../services/CarsAPI'
+import convertibleImg from "../assets/convertible.png"
+import carImg from "../assets/car.png"
 import '../App.css'
 import '../css/CarDetails.css'
 
@@ -8,13 +10,14 @@ import '../css/CarDetails.css'
 const CarDetails = ({data}) => {
 
     const {id} = useParams()
-    const [car, setCar] = useState({id: 0, name: "", exterior: "", interior: "", roof: "", wheels: "", price: ""})
+    const [car, setCar] = useState({id: 0, convertible: "", name: "", exterior: "", interior: "", roof: "", wheels: "", price: ""})
 
     useEffect(() => {
         const fetchCarbyId = async () => {
             try {
                 const response = await fetch(`/api/cars/${id}`)
                 const data = await response.json()
+                console.log(data)
                 setCar(data)
             } catch (error) {
                 console.error('Error fetching car details:', error)
@@ -28,6 +31,7 @@ const CarDetails = ({data}) => {
         <div>
             <article className = "car-full-details">
                 <header>
+                    <img src={car.convertible === "True" ? convertibleImg : carImg} alt={car.name} />
                     <h2> {car.name} </h2>
                 </header>
                 <div className= "details-content">
@@ -44,7 +48,7 @@ const CarDetails = ({data}) => {
                     </div>
                     <div className= "car-modify">
                         <a href={`/edit/${id}`} role="button">Edit</a>
-                        <a href={`/`} role="button">Delete</a>
+                        <button onClick={() => CarsAPI.deleteCar(id)}>Delete</button>
                     </div>
                     <div className= "car-selection">
                         <div className= "car-selection-overlay">

@@ -74,3 +74,22 @@
     align-items: center;
     width: 70%;
 }
+
+.error-messages {
+    color: #ff4d4d;
+    background-color: rgba(115, 2, 12, 0.6);
+    border: 1px solid #ff4d4d;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 0.85em;
+}
+
+.error-messages p {
+    margin: 4px 0;
+}
+
+article img {
+    height: 200px;
+    width: auto;
+    margin-right: 10px;
+}

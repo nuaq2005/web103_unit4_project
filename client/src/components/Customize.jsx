@@ -38,7 +38,13 @@ const Customize = ({car, setCar}) => {
                         <OptionModal
                             options={exteriorOptions}             // ✅ array from state
                             selectedOption={car.exterior}
-                            onSelect={(option) => setCar({ ...car, exterior: option.name, price: calcPrice(car, exteriorOptions, interiorOptions, roofOptions, wheelsOptions) })}
+                            onSelect={(option) => {
+                                const updatedCar = { ...car, exterior: option.name }
+                                setCar({
+                                    ...updatedCar,
+                                    price: calcPrice(updatedCar, exteriorOptions, interiorOptions, roofOptions, wheelsOptions)
+                                })
+                            }}
                             onClose={() => setActiveOption(null)}
                         />
                     )}
@@ -49,7 +55,13 @@ const Customize = ({car, setCar}) => {
                         <OptionModal
                             options={interiorOptions}             // ✅ array from state
                             selectedOption={car.interior}
-                            onSelect={(option) => setCar({ ...car, interior: option.name, price: calcPrice(car, exteriorOptions, interiorOptions, roofOptions, wheelsOptions) })}
+                            onSelect={(option) => {
+                                const updatedCar = { ...car, interior: option.name }
+                                setCar({
+                                    ...updatedCar,
+                                    price: calcPrice(updatedCar, exteriorOptions, interiorOptions, roofOptions, wheelsOptions)
+                                })
+                            }}
                             onClose={() => setActiveOption(null)}
                         />
                     )}
@@ -60,7 +72,13 @@ const Customize = ({car, setCar}) => {
                         <OptionModal
                             options={roofOptions}             // ✅ array from state
                             selectedOption={car.roof}
-                            onSelect={(option) => setCar({ ...car, roof: option.name, price: calcPrice(car, exteriorOptions, interiorOptions, roofOptions, wheelsOptions) })}
+                            onSelect={(option) => {
+                                const updatedCar = { ...car, roof: option.name }
+                                setCar({
+                                    ...updatedCar,
+                                    price: calcPrice(updatedCar, exteriorOptions, interiorOptions, roofOptions, wheelsOptions)
+                                })
+                            }}
                             onClose={() => setActiveOption(null)}
                         />
                     )}
@@ -71,7 +89,13 @@ const Customize = ({car, setCar}) => {
                         <OptionModal
                             options={wheelsOptions}             // ✅ array from state
                             selectedOption={car.wheels}
-                            onSelect={(option) => setCar({ ...car, wheels: option.name, price: calcPrice(car, exteriorOptions, interiorOptions, roofOptions, wheelsOptions) })}
+                            onSelect={(option) => {
+                                const updatedCar = { ...car, wheels: option.name }
+                                setCar({
+                                    ...updatedCar,
+                                    price: calcPrice(updatedCar, exteriorOptions, interiorOptions, roofOptions, wheelsOptions)
+                                })
+                            }}
                             onClose={() => setActiveOption(null)}
                         />
                     )}

@@ -17,12 +17,13 @@ const ViewCars = () => {
 
     return (
         <div className='view-cars'>
-            
             {cars.length > 0 ? (
                 cars.map((car) => (
                     <Car 
                     key={car.id} 
                     id={car.id}
+                    name={car.name}
+                    convertible={car.convertible}
                     exterior={car.exterior}
                     interior={car.interior}
                     wheels={car.wheels}

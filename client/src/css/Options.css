@@ -1,13 +1,17 @@
 .create-modify-options {
     display: flex;
-    align-items: center;
-    gap: 12px;        /* consistent spacing between buttons */
-    flex-wrap: wrap;  /* prevent overflow on smaller screens */
-    width: 100%;      /* was 70%, causing elements to spill out */
+    flex-direction: row;
+    gap: 10px;
+    flex: 0 0 auto;    /* don't grow, don't shrink, stay content-width only */
+    max-width: 30%;    /* don't let it grow beyond the container */
 }
 
 .modify-option {
-    position: relative;  /* keeps modal anchored near its button */
+    position: relative;
+}
+
+.modify-option button {
+    white-space: nowrap;
 }
 
 .option-modal {

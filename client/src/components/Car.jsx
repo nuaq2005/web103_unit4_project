@@ -1,11 +1,14 @@
 import '../css/Car.css'
+import convertibleImg from "../assets/convertible.png"
+import carImg from "../assets/car.png"
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const Car = ({ id, exterior, interior, wheels, roof, price }) => {
+const Car = ({ id, name, exterior, interior, wheels, roof, price }) => {
     return (
-        <article >
+        <article>
             <header>
+                <img src={exterior === "Convertible" ? convertibleImg : carImg} alt={name} />
                 <h3>{name}</h3>
             </header>
 

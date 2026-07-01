@@ -70,7 +70,7 @@
 
 #root input[type=text] {
     font-family: var(--font-family);
-    width: 50%;
+    width: 400px;
     height: 40px;
     font-size: .75em;
     color: #fff;
@@ -79,4 +79,16 @@
     margin-bottom: 0;
     display: flex;
     align-self: center;
+}
+
+#root input[type=checkbox] {
+    display: flex;
+    margin-right: 15px;
+}
+
+#root label {
+    font-family: var(--font-family);
+    display: flex;
+    margin-bottom: 0;
+    width: 15%;
 }

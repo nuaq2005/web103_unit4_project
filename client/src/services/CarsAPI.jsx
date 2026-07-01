@@ -1,3 +1,5 @@
+import React from 'react'
+
 const getAllCars = async () => {
   const response = await fetch('/api/cars')
   console.log(response)
@@ -18,26 +20,28 @@ const createCar = async (carData) => {
         },
         body: JSON.stringify(carData)
     })
-    return response.json()
-    window.location.href = '/'
+
     if (!response.ok) {
         throw new Error('Failed to create car')
     }
+
+    window.location.href = '/'
+    return response.json()
 }
 
 const updateCar = async (id, carData) => {
-    const response = await fetch(`/api/cars/${id}`, {
+    try{ 
+        const response = await fetch(`/api/cars/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(carData)
     })
+    window.location.href = '/customcars'
     return response.json()
-    if (!response.ok) {
-        throw new Error('Failed to update car')
-    } else {
-        window.location.href = '/customcars'
+    } catch (error) {
+        console.error('Error updating car:', error)
     }
 }
 
@@ -45,6 +49,8 @@ const deleteCar = async (id) => {
     const response = await fetch(`/api/cars/${id}`, {
         method: 'DELETE'
     })
+    console.log("Delete response:", response)
+    window.location.href = '/customcars'
     return response.json()
 }
 
